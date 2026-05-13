@@ -3,49 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artikel & Kajian | Khohar M.F.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Khusus Wong Gendeng | Ben Aman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0b1120;
+            --text-color: #f8fafc;
+            --accent-color: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            /* BANTALAN BAWAH DIPERBESAR JADI 800px AGAR DROPDOWN MUNCUL KE BAWAH */
+            padding: 50px 20px 800px; 
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .admin-container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* --- AUTH SCREEN --- */
+        #login-screen { max-width: 400px; text-align: center; margin-top: 10vh; }
+        #login-screen i { font-size: 3.5rem; color: var(--accent-color); margin-bottom: 20px; }
+
+        h2 { text-align: center; margin-bottom: 30px; font-weight: 800; background: linear-gradient(135deg, #fff, var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600; color: var(--accent-color); }
+
+        input, textarea, select {
+            width: 100%; padding: 12px 15px; background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color); border-radius: 10px; color: #fff;
+            font-family: inherit; outline: none; transition: 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus { border-color: var(--accent-color); background: rgba(255,255,255,0.1); }
+        
+        /* Styling Dropdown Kategori yang Panjang */
+        select option { background-color: #0b1120; color: #fff; padding: 10px; }
+        select optgroup { color: var(--accent-color); font-weight: 700; background-color: rgba(255,255,255,0.05); }
+
+        .btn-action {
+            width: 100%; padding: 15px; background: var(--accent-color); border: none;
+            border-radius: 10px; color: #0b1120; font-weight: 800; font-size: 1rem;
+            cursor: pointer; transition: 0.3s; margin-top: 10px;
+        }
+        .btn-action:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4); }
+
+        .status-msg { margin-top: 20px; text-align: center; font-weight: 600; padding: 10px; border-radius: 8px; display: none; }
+
+        /* --- WORD EDITOR STYLE --- */
+        .editor-wrapper { background: #fff; color: #000; border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+        #editor-container { height: 500px; font-size: 1rem; }
+        .ql-toolbar { background: #f1f5f9; border: none !important; border-bottom: 1px solid #cbd5e1 !important; }
+        .ql-container { border: none !important; }
+        .ql-picker-options { background-color: #fff !important; color: #000 !important; }
+    </style>
 </head>
 <body>
 
-    <nav class="glass-nav">
-        <div class="nav-container">
-            <a href="https://khohar25.github.io/portfolio" class="brand-logo">
-                <i class="fas fa-brain"></i> Artikel <span>Khohar Rohman</span>
-            </a>
-            <div class="nav-actions">
-                <a href="https://khohar25.github.io/portfolio" class="btn-back"><i class="fas fa-arrow-left"></i> Portofolio Utama</a>
-                <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-sun" id="theme-icon"></i></button>
+    <div id="login-screen" class="admin-container">
+        <i class="fas fa-user-shield"></i>
+        <h2>Ajeng Nopo Bolo?</h2>
+        <form id="login-form">
+            <div class="form-group"><input type="email" id="login-email" placeholder="Email Admin" required></div>
+            <div class="form-group"><input type="password" id="login-password" placeholder="Password" required></div>
+            <button type="submit" class="btn-action" id="btn-login">Monggo Mlebet <i class="fas fa-key"></i></button>
+        </form>
+        <div id="login-msg" class="status-msg"></div>
+    </div>
+
+    <div id="admin-panel" class="admin-container" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <a href="index.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Lihat Blog</a>
+            <button onclick="handleLogout()" style="background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 5px 15px; border-radius: 8px; cursor: pointer;">Logout</button>
+        </div>
+        
+        <h2><i class="fas fa-edit"></i> Microsoft Word Mode</h2>
+
+        <form id="article-form">
+            <div class="form-group">
+                <label>Judul Artikel</label>
+                <input type="text" id="judul" placeholder="Ketik judul artikel di sini..." required>
             </div>
-        </div>
-    </nav>
 
-    <header class="blog-hero">
-        <div class="hero-content">
-            <h1>Kajian Komputasional & Inovasi Digital</h1>
-            <p>Catatan perjalanan, riset AI, eksplorasi IoT, dan rekayasa perangkat lunak oleh Muhamad Fatahurrohman.</p>
-        </div>
-    </header>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label>Kategori</label>
+                    <select id="kategori" required>
+    <option value="" disabled selected>-- Pilih Kategori Artikel --</option>
 
-    <main class="container">
-        <div class="section-title-wrapper">
-            <h2>Artikel Terbaru</h2>
-            <div class="title-line"></div>
-        </div>
+    <optgroup label="1. Artificial Intelligence">
+        <option value="AI Tools">AI Tools</option>
+        <option value="Prompt Engineering">Prompt Engineering</option>
+        <option value="AI Productivity">AI Productivity</option>
+        <option value="AI for Business">AI for Business</option>
+        <option value="Automation">Automation</option>
+    </optgroup>
 
-        <div class="blog-grid" id="blog-container">
-            <div class="loading-state">
-                <i class="fas fa-circle-notch fa-spin"></i> Menarik data dari Supabase...
+    <optgroup label="2. Web Development">
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="Fullstack">Fullstack</option>
+        <option value="UI/UX">UI/UX</option>
+        <option value="Deployment">Deployment</option>
+    </optgroup>
+
+    <optgroup label="3. Programming">
+        <option value="JavaScript">JavaScript</option>
+        <option value="Python">Python</option>
+        <option value="PHP">PHP</option>
+        <option value="C++">C++</option>
+        <option value="Git & GitHub">Git & GitHub</option>
+    </optgroup>
+
+    <optgroup label="4. Projects">
+        <option value="Personal Project">Personal Project</option>
+        <option value="Campus Project">Campus Project</option>
+        <option value="Client Project">Client Project</option>
+        <option value="Experimental Project">Experimental Project</option>
+        <option value="Research & Development">Research & Development</option>
+    </optgroup>
+
+    <optgroup label="5. Technology">
+        <option value="Cybersecurity">Cybersecurity</option>
+        <option value="Cloud Computing">Cloud Computing</option>
+        <option value="Startup">Startup</option>
+        <option value="Gadgets">Gadgets</option>
+        <option value="Digital Trends">Digital Trends</option>
+        <option value="Tech Innovation">Tech Innovation</option>
+    </optgroup>
+
+    <optgroup label="6. Business & UMKM">
+        <option value="Entrepreneurship">Entrepreneurship</option>
+        <option value="Branding">Branding</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Digital Business">Digital Business</option>
+        <option value="UMKM Development">UMKM Development</option>
+    </optgroup>
+
+    <optgroup label="7. Design & Creative">
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="Apparel Design">Apparel Design</option>
+        <option value="Branding Visual">Branding Visual</option>
+        <option value="Printing">Printing</option>
+        <option value="Typography">Typography</option>
+    </optgroup>
+
+    <optgroup label="8. College Life">
+        <option value="Student Life">Student Life</option>
+        <option value="Productivity">Productivity</option>
+        <option value="Organization">Organization</option>
+        <option value="Self Development">Self Development</option>
+        <option value="Learning Journey">Learning Journey</option>
+    </optgroup>
+
+    <optgroup label="9. Tutorials">
+        <option value="Coding Tutorial">Coding Tutorial</option>
+        <option value="AI Tutorial">AI Tutorial</option>
+        <option value="Web Tutorial">Web Tutorial</option>
+        <option value="Design Tutorial">Design Tutorial</option>
+        <option value="Tips & Tricks">Tips & Tricks</option>
+    </optgroup>
+
+    <optgroup label="10. Insights & Opinion">
+        <option value="Technology Opinion">Technology Opinion</option>
+        <option value="AI Perspective">AI Perspective</option>
+        <option value="Reflection">Reflection</option>
+        <option value="Future Technology">Future Technology</option>
+        <option value="Personal Thoughts">Personal Thoughts</option>
+    </optgroup>
+
+    <optgroup label="11. Achievements">
+        <option value="Competition">Competition</option>
+        <option value="Academic Achievement">Academic Achievement</option>
+        <option value="Certification">Certification</option>
+        <option value="Awards">Awards</option>
+        <option value="Olympiad">Olympiad</option>
+    </optgroup>
+
+    <optgroup label="12. Research & Discoveries">
+        <option value="Research Findings">Research Findings</option>
+        <option value="Scientific Discoveries">Scientific Discoveries</option>
+        <option value="Experiments">Experiments</option>
+        <option value="Innovation">Innovation</option>
+        <option value="Science & Physics">Science & Physics</option>
+    </optgroup>
+
+    <optgroup label="13. News & Updates">
+        <option value="Technology News">Technology News</option>
+        <option value="AI News">AI News</option>
+        <option value="Industry Updates">Industry Updates</option>
+        <option value="Trending Topics">Trending Topics</option>
+    </optgroup>
+</select>
+                </div>
+                <div class="form-group">
+                    <label>Link Gambar Cover</label>
+                    <input type="url" id="link_gambar" placeholder="https://..." required>
+                </div>
             </div>
-        </div>
-    </main>
 
-    <footer class="glass-footer">
-        <p>&copy; 2026 Khohar Muhamad Fatahurrohman | AIFORA GROUP.</p>
-    </footer>
+            <div class="form-group">
+                <label>Ringkasan Pendek</label>
+                <textarea id="deskripsi_singkat" rows="2" placeholder="Muncul di halaman depan..." required></textarea>
+            </div>
 
-    <script src="script.js"></script>
+            <div class="form-group">
+                <label>Isi Konten (Full Editor)</label>
+                <div class="editor-wrapper">
+                    <div id="editor-container"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-action" id="submit-btn">PUBLISH SEKARANG <i class="fas fa-rocket"></i></button>
+        </form>
+        <div id="status-msg" class="status-msg"></div>
+    </div>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        // KONEKSI SUPABASE
+        const SUPABASE_URL = 'https://xwwlegzacxevmlmtceqh.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3d2xlZ3phY3hldm1sbXRjZXFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MDA2NzEsImV4cCI6MjA5Mzk3NjY3MX0.C9qCfFVN9j8gtvsLVBFGh4I28gIRvJkYlp546-ssEgw';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const loginScreen = document.getElementById('login-screen');
+        const adminPanel = document.getElementById('admin-panel');
+
+        // 1. CEK SESI LOGIN SAAT HALAMAN DIBUKA
+        async function checkSession() {
+            const { data: { session } } = await _supabase.auth.getSession();
+            if (session) {
+                loginScreen.style.display = 'none';
+                adminPanel.style.display = 'block';
+            }
+        }
+        checkSession();
+
+        // 2. PROSES LOGIN AMAN
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const msg = document.getElementById('login-msg');
+            const btn = document.getElementById('btn-login');
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifikasi...';
+            
+            const { error } = await _supabase.auth.signInWithPassword({ email, password });
+
+            if (error) {
+                msg.style.display = 'block'; msg.style.background = 'rgba(239, 68, 68, 0.2)'; msg.style.color = '#ef4444';
+                msg.innerHTML = "❌ Boten sah Neko Neko Bolo: " + error.message;
+                btn.innerHTML = 'MASUK KE DASHBOARD <i class="fas fa-key"></i>';
+            } else {
+                window.location.reload();
+            }
+        });
+
+        // 3. LOGOUT
+        async function handleLogout() {
+            await _supabase.auth.signOut();
+            window.location.reload();
+        }
+
+        // 4. KONFIGURASI EDITOR ALA MICROSOFT WORD
+        var toolbarOptions = [
+            [{ 'font': [] }],
+            [{ 'size': ['small', false, 'large', 'huge'] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'script': 'sub'}, { 'script': 'super' }],
+            [{ 'header': [1, 2, 3, false] }],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'align': [] }],
+            ['link', 'image', 'video'],
+            ['clean'] 
+        ];
+
+        var quill = new Quill('#editor-container', {
+            theme: 'snow',
+            placeholder: 'Tulis isi artikel kamu di sini...',
+            modules: { toolbar: toolbarOptions }
+        });
+
+        // 5. PUBLISH ARTIKEL KE DATABASE
+        document.getElementById('article-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const status = document.getElementById('status-msg');
+            const content = quill.root.innerHTML;
+
+            if (quill.getText().trim().length < 5) {
+                alert("Isi artikel terlalu pendek!"); return;
+            }
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengunggah...';
+            btn.disabled = true;
+
+            const payload = {
+                judul: document.getElementById('judul').value,
+                kategori: document.getElementById('kategori').value,
+                tanggal: new Date().toISOString().split('T')[0], // Otomatis Tanggal Hari Ini
+                link_gambar: document.getElementById('link_gambar').value,
+                deskripsi_singkat: document.getElementById('deskripsi_singkat').value,
+                isi_artikel: content
+            };
+
+            const { error } = await _supabase.from('tabel_artikel').insert([payload]);
+
+            if (error) {
+                status.style.display = 'block'; status.style.background = 'rgba(239, 68, 68, 0.2)'; status.style.color = '#ef4444';
+                status.innerHTML = "❌ Gagal Terbit: " + error.message;
+            } else {
+                status.style.display = 'block'; status.style.background = 'rgba(16, 185, 129, 0.2)'; status.style.color = '#10b981';
+                status.innerHTML = "✅ Berhasil! Artikel sudah tayang di blog.";
+                document.getElementById('article-form').reset();
+                quill.setContents([]);
+                setTimeout(() => { status.style.display = 'none'; }, 3000);
+            }
+            btn.innerHTML = 'PUBLISH SEKARANG <i class="fas fa-rocket"></i>';
+            btn.disabled = false;
+        });
+    </script>
 </body>
 </html>
