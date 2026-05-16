@@ -41,7 +41,6 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        /* --- AUTH SCREEN --- */
         #login-screen { max-width: 400px; text-align: center; margin-top: 10vh; }
         #login-screen i { font-size: 3.5rem; color: var(--accent-color); margin-bottom: 20px; }
 
@@ -70,7 +69,6 @@
 
         .status-msg { margin-top: 20px; text-align: center; font-weight: 600; padding: 10px; border-radius: 8px; display: none; }
 
-        /* --- WORD EDITOR STYLE --- */
         .editor-wrapper { background: #fff; color: #000; border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
         #editor-container { height: 500px; font-size: 1rem; }
         .ql-toolbar { background: #f1f5f9; border: none !important; border-bottom: 1px solid #cbd5e1 !important; }
@@ -114,105 +112,14 @@
                         <optgroup label="1. Artificial Intelligence">
                             <option value="AI Tools">AI Tools</option>
                             <option value="Prompt Engineering">Prompt Engineering</option>
-                            <option value="AI Productivity">AI Productivity</option>
-                            <option value="AI for Business">AI for Business</option>
-                            <option value="Automation">Automation</option>
                         </optgroup>
-
                         <optgroup label="2. Web Development">
                             <option value="Frontend">Frontend</option>
                             <option value="Backend">Backend</option>
-                            <option value="Fullstack">Fullstack</option>
-                            <option value="UI/UX">UI/UX</option>
-                            <option value="Deployment">Deployment</option>
                         </optgroup>
-
-                        <optgroup label="3. Programming">
-                            <option value="JavaScript">JavaScript</option>
-                            <option value="Python">Python</option>
-                            <option value="PHP">PHP</option>
-                            <option value="C++">C++</option>
-                            <option value="Git & GitHub">Git & GitHub</option>
-                        </optgroup>
-
-                        <optgroup label="4. Projects">
-                            <option value="Personal Project">Personal Project</option>
+                        <optgroup label="3. Kuliah & Riset">
                             <option value="Campus Project">Campus Project</option>
-                            <option value="Client Project">Client Project</option>
-                            <option value="Experimental Project">Experimental Project</option>
-                            <option value="Research & Development">Research & Development</option>
-                        </optgroup>
-
-                        <optgroup label="5. Technology">
-                            <option value="Cybersecurity">Cybersecurity</option>
-                            <option value="Cloud Computing">Cloud Computing</option>
-                            <option value="Startup">Startup</option>
-                            <option value="Gadgets">Gadgets</option>
-                            <option value="Digital Trends">Digital Trends</option>
-                            <option value="Tech Innovation">Tech Innovation</option>
-                        </optgroup>
-
-                        <optgroup label="6. Business & UMKM">
-                            <option value="Entrepreneurship">Entrepreneurship</option>
-                            <option value="Branding">Branding</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Digital Business">Digital Business</option>
-                            <option value="UMKM Development">UMKM Development</option>
-                        </optgroup>
-
-                        <optgroup label="7. Design & Creative">
-                            <option value="Graphic Design">Graphic Design</option>
-                            <option value="Apparel Design">Apparel Design</option>
-                            <option value="Branding Visual">Branding Visual</option>
-                            <option value="Printing">Printing</option>
-                            <option value="Typography">Typography</option>
-                        </optgroup>
-
-                        <optgroup label="8. College Life">
-                            <option value="Student Life">Student Life</option>
-                            <option value="Productivity">Productivity</option>
-                            <option value="Organization">Organization</option>
-                            <option value="Self Development">Self Development</option>
-                            <option value="Learning Journey">Learning Journey</option>
-                        </optgroup>
-
-                        <optgroup label="9. Tutorials">
-                            <option value="Coding Tutorial">Coding Tutorial</option>
-                            <option value="AI Tutorial">AI Tutorial</option>
-                            <option value="Web Tutorial">Web Tutorial</option>
-                            <option value="Design Tutorial">Design Tutorial</option>
-                            <option value="Tips & Tricks">Tips & Tricks</option>
-                        </optgroup>
-
-                        <optgroup label="10. Insights & Opinion">
-                            <option value="Technology Opinion">Technology Opinion</option>
-                            <option value="AI Perspective">AI Perspective</option>
-                            <option value="Reflection">Reflection</option>
-                            <option value="Future Technology">Future Technology</option>
-                            <option value="Personal Thoughts">Personal Thoughts</option>
-                        </optgroup>
-
-                        <optgroup label="11. Achievements">
-                            <option value="Competition">Competition</option>
-                            <option value="Academic Achievement">Academic Achievement</option>
-                            <option value="Certification">Certification</option>
-                            <option value="Awards">Awards</option>
-                            <option value="Olympiad">Olympiad</option>
-                        </optgroup>
-
-                        <optgroup label="12. Research & Discoveries">
-                            <option value="Research Findings">Research Findings</option>
-                            <option value="Scientific Discoveries">Scientific Discoveries</option>
-                            <option value="Experiments">Experiments</option>
-                            <option value="Innovation">Innovation</option>
-                            <option value="Science & Physics">Science & Physics</option>
-                        </optgroup>
-
-                        <optgroup label="13. News & Updates">
-                            <option value="Technology News">Technology News</option>
-                            <option value="AI News">AI News</option>
-                            <option value="Industry Updates">Industry Updates</option>
-                            <option value="Trending Topics">Trending Topics</option>
+                            <option value="Research & Discoveries">Research & Discoveries</option>
                         </optgroup>
                     </select>
                 </div>
@@ -251,7 +158,6 @@
         const loginScreen = document.getElementById('login-screen');
         const adminPanel = document.getElementById('admin-panel');
 
-        // 1. CEK SESI LOGIN SAAT HALAMAN DIBUKA
         async function checkSession() {
             const { data: { session } } = await _supabase.auth.getSession();
             if (session) {
@@ -261,7 +167,6 @@
         }
         checkSession();
 
-        // 2. PROSES LOGIN AMAN
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('login-email').value;
@@ -282,13 +187,11 @@
             }
         });
 
-        // 3. LOGOUT
         async function handleLogout() {
             await _supabase.auth.signOut();
             window.location.reload();
         }
 
-        // 4. KONFIGURASI EDITOR ALA MICROSOFT WORD
         var toolbarOptions = [
             [{ 'font': [] }],
             [{ 'size': ['small', false, 'large', 'huge'] }],
@@ -308,7 +211,6 @@
             modules: { toolbar: toolbarOptions }
         });
 
-        // 5. PUBLISH ARTIKEL KE DATABASE
         document.getElementById('article-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
@@ -322,12 +224,32 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengunggah...';
             btn.disabled = true;
 
-            // PAYLOAD UPDATE: Cek kalau kosong otomatis diisi nilai default
+            // ====================================================================
+            // FITUR SAKTI BARU: PENCULIK GAMBAR DARI DALAM ARTIKEL!
+            // ====================================================================
+            let linkGambarFinal = document.getElementById('link_gambar').value.trim();
+
+            // Kalau kolom input link gambar dibiarkan KOSONG sama Khohar:
+            if (!linkGambarFinal) {
+                // Kita bongkar isi ketikan dari editor pakai elemen div buatan
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = content;
+                
+                // Cari gambar (tag img) urutan pertama yang ada di dalam ketikan
+                const gambarPertama = tempDiv.querySelector('img');
+                
+                // Kalau ketemu gambarnya, curi link-nya buat dijadiin cover!
+                if (gambarPertama) {
+                    linkGambarFinal = gambarPertama.src;
+                }
+            }
+            // ====================================================================
+
             const payload = {
                 judul: document.getElementById('judul').value,
-                kategori: document.getElementById('kategori').value || 'Teknologi', // Default Kategori
+                kategori: document.getElementById('kategori').value || 'Teknologi',
                 tanggal: new Date().toISOString().split('T')[0], 
-                link_gambar: document.getElementById('link_gambar').value || '', // Dibiarkan kosong, nanti fallback Unsplash jalan
+                link_gambar: linkGambarFinal, // Masukin hasil curian tadi ke database
                 deskripsi_singkat: document.getElementById('deskripsi_singkat').value,
                 isi_artikel: content
             };
