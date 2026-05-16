@@ -1,24 +1,27 @@
 /* ==========================================================================
-   AIFORA BLOG - LOGIKA JAVASCRIPT & SUPABASE FETCH
+   AIFORA BLOG - LOGIKA JAVASCRIPT & SUPABASE FETCH (FIXED)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
     // 1. TEMA DARK/LIGHT MODE
     const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
-    let savedTheme = localStorage.getItem('blogTheme') || 'dark'; // Default keren Dark Mode
+    let savedTheme = localStorage.getItem('blogTheme') || 'dark';
 
     document.documentElement.setAttribute('data-theme', savedTheme);
-    themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    if (themeIcon) {
+        themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
 
-    themeBtn.addEventListener('click', () => {
-        let currentTheme = document.documentElement.getAttribute('data-theme');
-        let newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        localStorage.setItem('blogTheme', newTheme);
-    });
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('blogTheme', newTheme);
+        });
+    }
 
     // Panggil fungsi tarik data artikel
     loadArticles();
@@ -33,13 +36,24 @@ const headers = {
     'Content-Type': 'application/json' 
 };
 
+// FITUR SAKTI: Otomatis ubah link Google Drive biasa jadi Direct Link Gambar
+function perbaikiLinkDrive(url) {
+    if (!url) return '';
+    if (url.includes('drive.google.com')) {
+        const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
+        if (match && match[1]) {
+            return `https://docs.google.com/uc?export=view&id=${match[1]}`;
+        }
+    }
+    return url;
+}
+
 // 3. FUNGSI RENDER ARTIKEL
 async function loadArticles() {
     const blogContainer = document.getElementById('blog-container');
+    if (!blogContainer) return; // Mencegah error jika div container tidak ada di halaman
 
     try {
-        // Asumsi nama tabel di Supabase adalah "tabel_artikel"
-        // Kolom yang dibutuhkan: id, judul, kategori, tanggal, deskripsi_singkat, link_gambar
         const response = await fetch(`${SUPABASE_URL}/rest/v1/tabel_artikel?select=*&order=id.desc`, { headers });
         const articles = await response.json();
 
@@ -48,11 +62,11 @@ async function loadArticles() {
 
         if (articles && articles.length > 0) {
             articles.forEach(article => {
-                // Konversi tanggal (Opsional, agar format lebih enak dibaca)
                 let dateObj = new Date(article.tanggal);
                 let formattedDate = dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-                // Fallback gambar jika tidak diisi di database
-                let imageUrl = article.link_gambar || 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+                
+                // PERBAIKAN 1: Terapkan fungsi pembongkar link Drive
+                let imageUrl = perbaikiLinkDrive(article.link_gambar) || 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
 
                 let articleHTML = `
                     <div class="article-card">
@@ -65,7 +79,7 @@ async function loadArticles() {
                             <h3 class="card-title">${article.judul}</h3>
                             <p class="card-excerpt">${article.deskripsi_singkat || 'Baca selengkapnya mengenai kajian teknis dan eksplorasi komputasional pada artikel ini.'}</p>
                             
-                            <a href="#" class="read-more">Baca Artikel <i class="fas fa-arrow-right"></i></a>
+                            <a href="baca.html?id=${article.id}" class="read-more">Baca Artikel <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 `;
