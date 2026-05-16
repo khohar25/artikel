@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel & Insight | Khohar Rohman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <i class="fas fa-layer-group"></i>
+                Khohar<span>Artikel</span>
+            </div>
+            <div class="nav-actions">
+                <a href="https://khoharrohman.my.id" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> <span>Kembali ke Portofolio</span>
+                </a>
+                <button id="theme-toggle" title="Ubah Tema">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-hero">
+        <div class="hero-content">
+            <h1>Eksplorasi Ide & Teknologi</h1>
+            <p>Ruang baca untuk berbagi insight seputar Software Engineering, Artificial Intelligence, dan perjalanan dunia IT.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-title-wrapper">
+            <h2>Artikel Terbaru</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div id="blog-container" class="blog-grid">
+            <div class="loading-state">
+                <i class="fas fa-spinner fa-spin"></i> Memuat artikel dari database...
+            </div>
+        </div>
+    </main>
+
+    <footer class="glass-footer">
+        <p>&copy; 2026 Muhamad. Dibuat dengan dedikasi dan sedikit kopi. ☕</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
