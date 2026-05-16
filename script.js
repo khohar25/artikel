@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AIFORA BLOG - LOGIKA JAVASCRIPT & SUPABASE FETCH (PURE IMAGE FIX)
+   AIFORA BLOG - LOGIKA JAVASCRIPT (EKSTRAK GAMBAR OTOMATIS DARI ISI)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,9 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let savedTheme = localStorage.getItem('blogTheme') || 'dark';
 
     document.documentElement.setAttribute('data-theme', savedTheme);
-    if (themeIcon) {
-        themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    }
+    if (themeIcon) themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
 
     if (themeBtn) {
         themeBtn.addEventListener('click', () => {
@@ -33,14 +31,12 @@ const headers = {
     'Content-Type': 'application/json' 
 };
 
-// FIX: Konversi Link Google Drive ke Direct Link Gambar yang Benar
+// Fungsi jaga-jaga kalau ternyata ada link Google Drive
 function perbaikiLinkDrive(url) {
     if (!url) return '';
     if (url.includes('drive.google.com')) {
         const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/) || url.match(/id=([a-zA-Z0-9-_]+)/);
-        if (match && match[1]) {
-            return `https://drive.google.com/uc?id=${match[1]}`;
-        }
+        return match && match[1] ? `https://drive.google.com/uc?id=${match[1]}` : url;
     }
     return url;
 }
@@ -60,10 +56,29 @@ async function loadArticles() {
                 let dateObj = new Date(article.tanggal);
                 let formattedDate = dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
                 
-                let imageUrl = perbaikiLinkDrive(article.link_gambar);
+                let imageUrl = '';
 
-                // Gak pake fallback Unsplash lagi, kalau gada gambar tag img dikosongkan/disembunyikan
-                let imgHTML = imageUrl ? `<img src="${imageUrl}" alt="Cover ${article.judul}" class="card-img">` : '';
+                // ====================================================================
+                // LOGIKA SAKTI BARU: NYOMOT GAMBAR PERTAMA DARI DALAM KETIKAN ARTIKEL
+                // ====================================================================
+                if (article.isi_artikel) {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = article.isi_artikel; // Masukin isi artikel ke elemen virtual
+                    const firstImg = tempDiv.querySelector('img'); // Cari tag <img ...> urutan pertama
+                    
+                    if (firstImg) {
+                        imageUrl = firstImg.src; // Kalau ketemu, curi source gambarnya!
+                    }
+                }
+
+                // Kalau di dalam artikel gak ada gambar sama sekali, baru cek kolom cover
+                if (!imageUrl && article.link_gambar) {
+                    imageUrl = perbaikiLinkDrive(article.link_gambar);
+                }
+                // ====================================================================
+
+                // Render Thumbnail: Kalau ada gambar tampilkan, kalau nggak ada biarkan bersih tanpa gambar
+                let imgHTML = imageUrl ? `<img src="${imageUrl}" alt="Cover ${article.judul}" class="card-img" style="object-fit: cover; object-position: center;">` : '';
 
                 let articleHTML = `
                     <div class="article-card">
