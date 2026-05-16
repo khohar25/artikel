@@ -87,7 +87,7 @@
             padding: 15px 0;
         }
 
-        /* Cover Image High-Tech */
+        /* Cover Image High-Tech (Hero) */
         .hero-image-container {
             position: relative;
             margin: 50px 0;
@@ -112,6 +112,16 @@
             color: #cbd5e1;
             font-family: 'Inter', sans-serif;
         }
+
+        /* --- BARIS PENJINAK GAMBAR MELEDAK DI SINI --- */
+        .article-body img {
+            max-width: 100%; /* Wajib biar gak meluber ke samping */
+            height: auto; /* Biar proporsional gak gepeng */
+            border-radius: 12px; /* Biar estetik dikit */
+            display: block; /* Taruh tengah */
+            margin: 30px auto; /* Kasih jarak atas bawah */
+        }
+        /* ------------------------------------------- */
 
         .article-body h2, .article-body h3 {
             color: #fff;
@@ -234,7 +244,7 @@
     </main>
 
     <footer class="glass-footer">
-        <p>&copy; 2026 Khohar Rohman. <i class="fas fa-bolt" style="color: var(--accent-color);"></i> Powered by AIFORA Engine.</p>
+        <p>© 2026 Khohar Rohman. <i class="fas fa-bolt" style="color: var(--accent-color);"></i> Powered by AIFORA Engine.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -243,11 +253,12 @@
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3d2xlZ3phY3hldm1sbXRjZXFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MDA2NzEsImV4cCI6MjA5Mzk3NjY3MX0.C9qCfFVN9j8gtvsLVBFGh4I28gIRvJkYlp546-ssEgw';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // Helper Link Google Drive
+        // Helper Link Google Drive VIP
         function getDirectLink(url) {
             if (!url) return 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80';
             if (url.includes('drive.google.com')) {
                 const id = url.match(/\/d\/([a-zA-Z0-9-_]+)/) || url.match(/id=([a-zA-Z0-9-_]+)/);
+                // Jalur render VIP
                 return id ? `https://lh3.googleusercontent.com/d/${id[1]}` : url;
             }
             return url;
