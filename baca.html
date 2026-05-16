@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memuat Artikel... | Ruang Baca Khohar</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 
@@ -210,9 +210,19 @@
     </div>
 
     <main class="article-wrapper">
-        <div id="skeleton-loader" style="text-align: center; padding: 100px 0;">
-            <i class="fas fa-circle-notch fa-spin" style="font-size: 3rem; color: var(--accent-color);"></i>
-            <p style="margin-top: 20px; color: var(--text-muted);">Menghubungkan ke Jaringan AIFORA...</p>
+        <div id="skeleton-loader" class="cute-robot-loader" style="padding: 100px 0;">
+            <svg class="robot-body" viewBox="0 0 100 100" width="120" height="120">
+                <ellipse class="robot-shadow" cx="50" cy="90" rx="25" ry="5" fill="rgba(0,0,0,0.2)"/>
+                <line x1="50" y1="20" x2="50" y2="5" stroke="var(--accent-color)" stroke-width="4" stroke-linecap="round"/>
+                <circle class="robot-bulb" cx="50" cy="5" r="6" fill="#facc15" />
+                <rect x="20" y="20" width="60" height="45" rx="15" fill="var(--card-bg)" stroke="var(--accent-color)" stroke-width="3"/>
+                <rect class="robot-eye" x="35" y="35" width="8" height="12" rx="4" fill="var(--accent-color)"/>
+                <rect class="robot-eye" x="57" y="35" width="8" height="12" rx="4" fill="var(--accent-color)"/>
+                <circle cx="28" cy="45" r="4" fill="#ef4444" opacity="0.6"/>
+                <circle cx="72" cy="45" r="4" fill="#ef4444" opacity="0.6"/>
+                <path d="M 40 65 L 60 65 L 55 80 L 45 80 Z" fill="var(--accent-color)"/>
+            </svg>
+            <div class="robot-text">Please wait patiently, processing data<span class="dots"></span></div>
         </div>
 
         <article id="main-content" style="display: none;">
