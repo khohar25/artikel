@@ -22,7 +22,6 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            /* BANTALAN BAWAH DIPERBESAR JADI 800px AGAR DROPDOWN MUNCUL KE BAWAH */
             padding: 50px 20px 800px; 
             display: flex;
             justify-content: center;
@@ -59,7 +58,6 @@
 
         input:focus, textarea:focus, select:focus { border-color: var(--accent-color); background: rgba(255,255,255,0.1); }
         
-        /* Styling Dropdown Kategori yang Panjang */
         select option { background-color: #0b1120; color: #fff; padding: 10px; }
         select optgroup { color: var(--accent-color); font-weight: 700; background-color: rgba(255,255,255,0.05); }
 
@@ -109,118 +107,118 @@
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                 <div class="form-group">
-                    <label>Kategori</label>
-                    <select id="kategori" required>
-    <option value="" disabled selected>-- Pilih Kategori Artikel --</option>
+                    <label>Kategori (Boleh Langsung Lewat)</label>
+                    <select id="kategori">
+                        <option value="Teknologi" selected>🤖 Bebas (Otomatis masuk Teknologi)</option>
 
-    <optgroup label="1. Artificial Intelligence">
-        <option value="AI Tools">AI Tools</option>
-        <option value="Prompt Engineering">Prompt Engineering</option>
-        <option value="AI Productivity">AI Productivity</option>
-        <option value="AI for Business">AI for Business</option>
-        <option value="Automation">Automation</option>
-    </optgroup>
+                        <optgroup label="1. Artificial Intelligence">
+                            <option value="AI Tools">AI Tools</option>
+                            <option value="Prompt Engineering">Prompt Engineering</option>
+                            <option value="AI Productivity">AI Productivity</option>
+                            <option value="AI for Business">AI for Business</option>
+                            <option value="Automation">Automation</option>
+                        </optgroup>
 
-    <optgroup label="2. Web Development">
-        <option value="Frontend">Frontend</option>
-        <option value="Backend">Backend</option>
-        <option value="Fullstack">Fullstack</option>
-        <option value="UI/UX">UI/UX</option>
-        <option value="Deployment">Deployment</option>
-    </optgroup>
+                        <optgroup label="2. Web Development">
+                            <option value="Frontend">Frontend</option>
+                            <option value="Backend">Backend</option>
+                            <option value="Fullstack">Fullstack</option>
+                            <option value="UI/UX">UI/UX</option>
+                            <option value="Deployment">Deployment</option>
+                        </optgroup>
 
-    <optgroup label="3. Programming">
-        <option value="JavaScript">JavaScript</option>
-        <option value="Python">Python</option>
-        <option value="PHP">PHP</option>
-        <option value="C++">C++</option>
-        <option value="Git & GitHub">Git & GitHub</option>
-    </optgroup>
+                        <optgroup label="3. Programming">
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Python">Python</option>
+                            <option value="PHP">PHP</option>
+                            <option value="C++">C++</option>
+                            <option value="Git & GitHub">Git & GitHub</option>
+                        </optgroup>
 
-    <optgroup label="4. Projects">
-        <option value="Personal Project">Personal Project</option>
-        <option value="Campus Project">Campus Project</option>
-        <option value="Client Project">Client Project</option>
-        <option value="Experimental Project">Experimental Project</option>
-        <option value="Research & Development">Research & Development</option>
-    </optgroup>
+                        <optgroup label="4. Projects">
+                            <option value="Personal Project">Personal Project</option>
+                            <option value="Campus Project">Campus Project</option>
+                            <option value="Client Project">Client Project</option>
+                            <option value="Experimental Project">Experimental Project</option>
+                            <option value="Research & Development">Research & Development</option>
+                        </optgroup>
 
-    <optgroup label="5. Technology">
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Cloud Computing">Cloud Computing</option>
-        <option value="Startup">Startup</option>
-        <option value="Gadgets">Gadgets</option>
-        <option value="Digital Trends">Digital Trends</option>
-        <option value="Tech Innovation">Tech Innovation</option>
-    </optgroup>
+                        <optgroup label="5. Technology">
+                            <option value="Cybersecurity">Cybersecurity</option>
+                            <option value="Cloud Computing">Cloud Computing</option>
+                            <option value="Startup">Startup</option>
+                            <option value="Gadgets">Gadgets</option>
+                            <option value="Digital Trends">Digital Trends</option>
+                            <option value="Tech Innovation">Tech Innovation</option>
+                        </optgroup>
 
-    <optgroup label="6. Business & UMKM">
-        <option value="Entrepreneurship">Entrepreneurship</option>
-        <option value="Branding">Branding</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Digital Business">Digital Business</option>
-        <option value="UMKM Development">UMKM Development</option>
-    </optgroup>
+                        <optgroup label="6. Business & UMKM">
+                            <option value="Entrepreneurship">Entrepreneurship</option>
+                            <option value="Branding">Branding</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Digital Business">Digital Business</option>
+                            <option value="UMKM Development">UMKM Development</option>
+                        </optgroup>
 
-    <optgroup label="7. Design & Creative">
-        <option value="Graphic Design">Graphic Design</option>
-        <option value="Apparel Design">Apparel Design</option>
-        <option value="Branding Visual">Branding Visual</option>
-        <option value="Printing">Printing</option>
-        <option value="Typography">Typography</option>
-    </optgroup>
+                        <optgroup label="7. Design & Creative">
+                            <option value="Graphic Design">Graphic Design</option>
+                            <option value="Apparel Design">Apparel Design</option>
+                            <option value="Branding Visual">Branding Visual</option>
+                            <option value="Printing">Printing</option>
+                            <option value="Typography">Typography</option>
+                        </optgroup>
 
-    <optgroup label="8. College Life">
-        <option value="Student Life">Student Life</option>
-        <option value="Productivity">Productivity</option>
-        <option value="Organization">Organization</option>
-        <option value="Self Development">Self Development</option>
-        <option value="Learning Journey">Learning Journey</option>
-    </optgroup>
+                        <optgroup label="8. College Life">
+                            <option value="Student Life">Student Life</option>
+                            <option value="Productivity">Productivity</option>
+                            <option value="Organization">Organization</option>
+                            <option value="Self Development">Self Development</option>
+                            <option value="Learning Journey">Learning Journey</option>
+                        </optgroup>
 
-    <optgroup label="9. Tutorials">
-        <option value="Coding Tutorial">Coding Tutorial</option>
-        <option value="AI Tutorial">AI Tutorial</option>
-        <option value="Web Tutorial">Web Tutorial</option>
-        <option value="Design Tutorial">Design Tutorial</option>
-        <option value="Tips & Tricks">Tips & Tricks</option>
-    </optgroup>
+                        <optgroup label="9. Tutorials">
+                            <option value="Coding Tutorial">Coding Tutorial</option>
+                            <option value="AI Tutorial">AI Tutorial</option>
+                            <option value="Web Tutorial">Web Tutorial</option>
+                            <option value="Design Tutorial">Design Tutorial</option>
+                            <option value="Tips & Tricks">Tips & Tricks</option>
+                        </optgroup>
 
-    <optgroup label="10. Insights & Opinion">
-        <option value="Technology Opinion">Technology Opinion</option>
-        <option value="AI Perspective">AI Perspective</option>
-        <option value="Reflection">Reflection</option>
-        <option value="Future Technology">Future Technology</option>
-        <option value="Personal Thoughts">Personal Thoughts</option>
-    </optgroup>
+                        <optgroup label="10. Insights & Opinion">
+                            <option value="Technology Opinion">Technology Opinion</option>
+                            <option value="AI Perspective">AI Perspective</option>
+                            <option value="Reflection">Reflection</option>
+                            <option value="Future Technology">Future Technology</option>
+                            <option value="Personal Thoughts">Personal Thoughts</option>
+                        </optgroup>
 
-    <optgroup label="11. Achievements">
-        <option value="Competition">Competition</option>
-        <option value="Academic Achievement">Academic Achievement</option>
-        <option value="Certification">Certification</option>
-        <option value="Awards">Awards</option>
-        <option value="Olympiad">Olympiad</option>
-    </optgroup>
+                        <optgroup label="11. Achievements">
+                            <option value="Competition">Competition</option>
+                            <option value="Academic Achievement">Academic Achievement</option>
+                            <option value="Certification">Certification</option>
+                            <option value="Awards">Awards</option>
+                            <option value="Olympiad">Olympiad</option>
+                        </optgroup>
 
-    <optgroup label="12. Research & Discoveries">
-        <option value="Research Findings">Research Findings</option>
-        <option value="Scientific Discoveries">Scientific Discoveries</option>
-        <option value="Experiments">Experiments</option>
-        <option value="Innovation">Innovation</option>
-        <option value="Science & Physics">Science & Physics</option>
-    </optgroup>
+                        <optgroup label="12. Research & Discoveries">
+                            <option value="Research Findings">Research Findings</option>
+                            <option value="Scientific Discoveries">Scientific Discoveries</option>
+                            <option value="Experiments">Experiments</option>
+                            <option value="Innovation">Innovation</option>
+                            <option value="Science & Physics">Science & Physics</option>
+                        </optgroup>
 
-    <optgroup label="13. News & Updates">
-        <option value="Technology News">Technology News</option>
-        <option value="AI News">AI News</option>
-        <option value="Industry Updates">Industry Updates</option>
-        <option value="Trending Topics">Trending Topics</option>
-    </optgroup>
-</select>
+                        <optgroup label="13. News & Updates">
+                            <option value="Technology News">Technology News</option>
+                            <option value="AI News">AI News</option>
+                            <option value="Industry Updates">Industry Updates</option>
+                            <option value="Trending Topics">Trending Topics</option>
+                        </optgroup>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label>Link Gambar Cover</label>
-                    <input type="url" id="link_gambar" placeholder="https://..." required>
+                    <label>Link Gambar Cover (Opsional)</label>
+                    <input type="url" id="link_gambar" placeholder="Kosongin aja kalau males Bolo...">
                 </div>
             </div>
 
@@ -324,11 +322,12 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengunggah...';
             btn.disabled = true;
 
+            // PAYLOAD UPDATE: Cek kalau kosong otomatis diisi nilai default
             const payload = {
                 judul: document.getElementById('judul').value,
-                kategori: document.getElementById('kategori').value,
-                tanggal: new Date().toISOString().split('T')[0], // Otomatis Tanggal Hari Ini
-                link_gambar: document.getElementById('link_gambar').value,
+                kategori: document.getElementById('kategori').value || 'Teknologi', // Default Kategori
+                tanggal: new Date().toISOString().split('T')[0], 
+                link_gambar: document.getElementById('link_gambar').value || '', // Dibiarkan kosong, nanti fallback Unsplash jalan
                 deskripsi_singkat: document.getElementById('deskripsi_singkat').value,
                 isi_artikel: content
             };
