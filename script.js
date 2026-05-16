@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AIFORA BLOG - LOGIKA JAVASCRIPT & SUPABASE FETCH (SUPER RESOLUTION)
+   AIFORA BLOG - LOGIKA JAVASCRIPT & SUPABASE FETCH (PURE IMAGE FIX)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,14 +33,13 @@ const headers = {
     'Content-Type': 'application/json' 
 };
 
-// JALUR VIP: Mengubah link Drive biasa menjadi link render gambar langsung (Direct Link)
+// FIX: Konversi Link Google Drive ke Direct Link Gambar yang Benar
 function perbaikiLinkDrive(url) {
     if (!url) return '';
     if (url.includes('drive.google.com')) {
         const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/) || url.match(/id=([a-zA-Z0-9-_]+)/);
         if (match && match[1]) {
-            // Menggunakan domain subdomain lh3 untuk bypass pembatasan rendering reguler
-            return `https://lh3.googleusercontent.com/d/${match[1]}`;
+            return `https://drive.google.com/uc?id=${match[1]}`;
         }
     }
     return url;
@@ -61,12 +60,14 @@ async function loadArticles() {
                 let dateObj = new Date(article.tanggal);
                 let formattedDate = dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
                 
-                // Konversi link Drive dilakukan di sini
-                let imageUrl = perbaikiLinkDrive(article.link_gambar) || 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+                let imageUrl = perbaikiLinkDrive(article.link_gambar);
+
+                // Gak pake fallback Unsplash lagi, kalau gada gambar tag img dikosongkan/disembunyikan
+                let imgHTML = imageUrl ? `<img src="${imageUrl}" alt="Cover ${article.judul}" class="card-img">` : '';
 
                 let articleHTML = `
                     <div class="article-card">
-                        <img src="${imageUrl}" alt="Cover ${article.judul}" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        ${imgHTML}
                         <div class="card-body">
                             <div class="card-meta">
                                 <span class="card-tag">${article.kategori || 'Teknologi'}</span>
@@ -74,7 +75,6 @@ async function loadArticles() {
                             </div>
                             <h3 class="card-title">${article.judul}</h3>
                             <p class="card-excerpt">${article.deskripsi_singkat || 'Baca selengkapnya mengenai kajian teknis pada artikel ini.'}</p>
-                            
                             <a href="baca.html?id=${article.id}" class="read-more">Baca Artikel <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -91,11 +91,5 @@ async function loadArticles() {
         }
     } catch (error) {
         console.error("Gagal memuat artikel:", error);
-        blogContainer.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #ef4444; border: 1px dashed #ef4444; border-radius: 12px;">
-                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                <p>Gagal terhubung ke database server.</p>
-            </div>
-        `;
     }
 }
