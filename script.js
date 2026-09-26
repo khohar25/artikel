@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     loadArticles();
 });
 
-const SUPABASE_URL = 'https://xwwlegzacxevmlmtceqh.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3d2xlZ3phY3hldm1sbXRjZXFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MDA2NzEsImV4cCI6MjA5Mzk3NjY3MX0.C9qCfFVN9j8gtvsLVBFGh4I28gIRvJkYlp546-ssEgw';
+const SUPABASE_URL = 'https://whbmyhxjinbyakwyuxnrd.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoYm15aHhpbmJ5YWt3eXV4bnJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA0NDQxMzksImV4cCI6MjEwNjAyMDEzOX0.XsSwtCZCdIviu1opTvGynnvECrYKrGIRugy2CiN_gec';
 const headers = { 
     'apikey': SUPABASE_KEY, 
     'Authorization': `Bearer ${SUPABASE_KEY}`, 
@@ -106,5 +106,11 @@ async function loadArticles() {
         }
     } catch (error) {
         console.error("Gagal memuat artikel:", error);
+        blogContainer.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted); border: 1px dashed var(--border-color); border-radius: 12px;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px; color: #f59e0b;"></i>
+                <p>Koneksi database artikel sedang menghubungkan atau dalam pemeliharaan. Silakan segarkan dalam beberapa saat.</p>
+            </div>
+        `;
     }
 }
