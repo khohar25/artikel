@@ -122,6 +122,20 @@
             document.getElementById("progress-bar").style.width = scrolled + "%";
         };
 
+        function renderArticleDetail(article) {
+            document.title = `${article.judul} | Ruang Baca`;
+            document.getElementById('target-judul').innerText = article.judul;
+            document.getElementById('target-kategori').innerText = article.kategori || 'TEKNOLOGI';
+            document.getElementById('target-isi').innerHTML = article.isi_artikel || `<p>${article.deskripsi_singkat || article.deskripsi || ''}</p>`;
+            
+            let d = new Date(article.tanggal || article.created_at);
+            document.getElementById('target-tanggal').innerText = d.toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric'});
+            document.getElementById('reading-time').innerText = calculateReadingTime(document.getElementById('target-isi').innerText);
+
+            document.getElementById('skeleton-loader').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+
         async function fetchArticle() {
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get('id');
@@ -131,6 +145,9 @@
                 return;
             }
 
+            let loaded = false;
+
+            // 1. Coba ambil dari database Supabase
             try {
                 const { data, error } = await _supabase
                     .from('tabel_artikel')
@@ -138,25 +155,33 @@
                     .eq('id', id)
                     .single();
 
-                if (error || !data) throw error;
-
-                document.title = `${data.judul} | Ruang Baca`;
-                document.getElementById('target-judul').innerText = data.judul;
-                document.getElementById('target-kategori').innerText = data.kategori || 'TEKNOLOGI';
-                
-                // Cukup lempar isi artikelnya aja, biarkan gambarmu nongol natural
-                document.getElementById('target-isi').innerHTML = data.isi_artikel;
-                
-                let d = new Date(data.tanggal);
-                document.getElementById('target-tanggal').innerText = d.toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric'});
-                document.getElementById('reading-time').innerText = calculateReadingTime(document.getElementById('target-isi').innerText);
-
-                document.getElementById('skeleton-loader').style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
-
+                if (!error && data) {
+                    renderArticleDetail(data);
+                    loaded = true;
+                }
             } catch (err) {
-                console.error(err);
-                document.getElementById('skeleton-loader').innerHTML = `<p style="color: #ef4444;">❌ Gagal Memuat Artikel.</p>`;
+                console.warn("Supabase fetch error, fallback to local:", err);
+            }
+
+            // 2. Jika Supabase gagal/offline, ambil dari artikel.json lokal
+            if (!loaded) {
+                try {
+                    const res = await fetch('artikel.json');
+                    if (res.ok) {
+                        const localArticles = await res.json();
+                        const found = localArticles.find(item => String(item.id) === String(id));
+                        if (found) {
+                            renderArticleDetail(found);
+                            loaded = true;
+                        }
+                    }
+                } catch (e) {
+                    console.error("Local fetch error:", e);
+                }
+            }
+
+            if (!loaded) {
+                document.getElementById('skeleton-loader').innerHTML = `<p style="color: #ef4444; padding: 30px; text-align: center;">❌ Artikel tidak ditemukan.</p>`;
             }
         }
 
