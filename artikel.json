@@ -2,7 +2,7 @@
   {
     "id": 1,
     "slug": "transformasi-lanskap-kecerdasan-artifisial",
-    "judul": "Transformasi Lanskap Kecerdasan Artifisial: Analisis Paradoks Produktivitas, Adopsi Lintas Sektor, dan Tata Kelola Berkelanjutan",
+    "judul": "Transformasi Lanskap Kecerdasan Artifisial Analisis Paradoks Produktivitas, Adopsi Lintas Sektor, dan Tata Kelola Berkelanjutan",
     "kategori": "Artificial Intelligence & Policy",
     "tanggal": "2026-10-01",
     "deskripsi_singkat": "Kajian komprehensif mengupas Paradoks Solow dalam adopsi AI, transformasi lintas sektor (kesehatan, rekayasa software, pendidikan, kreatif), restrukturisasi pasar tenaga kerja dua jalur, kepatuhan etika regulasi SE Menkominfo No. 9/2023, hingga metodologi rekayasa instruksi RTF modular.",
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "slug": "adopsi-small-language-models-perbankan",
-    "judul": "Adopsi Small Language Models (SLMs) di Sektor Perbankan: Arsitektur On-Premise, Kedaulatan Data UU PDP, dan Efisiensi Finansial",
+    "judul": "Adopsi Small Language Models (SLMs) di Sektor Perbankan Arsitektur On-Premise, Kedaulatan Data UU PDP, dan Efisiensi Finansial",
     "kategori": "FinTech & Banking AI",
     "tanggal": "2026-09-29",
     "deskripsi_singkat": "Kajian arsitektur Small Language Models (SLMs) on-premise di sektor perbankan: efisiensi biaya hingga 90%, jaminan kedaulatan data nasabah UU PDP No. 27/2022, paradigma The Models Pyramid, dan kepatuhan Panduan Tata Kelola AI OJK 2025/2026.",
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "slug": "model-context-protocol-multi-agent-enterprise",
-    "judul": "Model Context Protocol (MCP) dan Arsitektur Multi-Agent AI: Transformasi Standar Integrasi Konteks dan Tata Kelola Korporat",
+    "judul": "Model Context Protocol (MCP) dan Arsitektur Multi-Agent AI Transformasi Standar Integrasi Konteks dan Tata Kelola Korporat",
     "kategori": "Enterprise Architecture & MCP",
     "tanggal": "2026-09-27",
     "deskripsi_singkat": "Panduan arsitektur Model Context Protocol (MCP) dan Multi-Agent Systems enterprise: memecahkan krisis integrasi N x M, eliminasi kerentanan Text-to-SQL, lapisan kendali Control Plane RBAC, dan audit kepatuhan regulasi AI 2026.",
@@ -35,7 +35,7 @@
   {
     "id": 4,
     "slug": "ai-agent-manajemen-rantai-pasok",
-    "judul": "AI Agent dalam Manajemen Rantai Pasok dan Logistik: Arsitektur Self-Healing, Mitigasi Bullwhip Effect, dan Tata Kelola Proporsional",
+    "judul": "AI Agent dalam Manajemen Rantai Pasok dan Logistik Arsitektur Self-Healing, Mitigasi Bullwhip Effect, dan Tata Kelola Proporsional",
     "kategori": "Smart Logistics & SCM",
     "tanggal": "2026-09-25",
     "deskripsi_singkat": "Panduan implementasi AI Agent dan Multi-Agent Systems di manajemen rantai pasok: arsitektur self-healing, mitigasi agent bullwhip effect via konsensus multi-agen, proyeksi pasar Gartner 2026-2030, dan piramida tata kelola proporsional.",
@@ -46,7 +46,7 @@
   {
     "id": 5,
     "slug": "ai-agent-cybersecurity-soc-enterprise",
-    "judul": "AI Agent dalam Cybersecurity dan SOC Enterprise: Mitigasi Alert Fatigue, Prinsip Least Agency Privilege, dan Kepatuhan Regulasi",
+    "judul": "AI Agent dalam Cybersecurity dan SOC Enterprise Mitigasi Alert Fatigue, Prinsip Least Agency Privilege, dan Kepatuhan Regulasi",
     "kategori": "Cybersecurity & Autonomous SOC",
     "tanggal": "2026-09-23",
     "deskripsi_singkat": "Kajian arsitektur AI Agent dalam Security Operations Center (SOC) enterprise: menyaring 70-85% alert fatigue, korelasi multi-tahap SIEM/EDR, doktrin keamanan Least Agency Privilege, dan pemenuhan batas notifikasi 3x24 jam UU PDP No. 27/2022.",
@@ -57,7 +57,7 @@
   {
     "id": 6,
     "slug": "ai-software-engineering-agents-sdlc",
-    "judul": "AI Software Engineering Agents dalam Transformasi SDLC: Dari Copilot ke Autonomous Engineer, SWE-bench, dan Verification-First",
+    "judul": "AI Software Engineering Agents dalam Transformasi SDLC Dari Copilot ke Autonomous Engineer, SWE-bench, dan Verification-First",
     "kategori": "Software Engineering Agents",
     "tanggal": "2026-09-21",
     "deskripsi_singkat": "Kajian mendalam AI Software Engineering (SWE) Agents dalam siklus hidup pengembangan perangkat lunak (SDLC): tolok ukur SWE-bench, arsitektur multi-berkas asinkron, mitigasi governance debt, dan proyeksi produktivitas Gartner 2028.",
@@ -68,7 +68,7 @@
   {
     "id": 7,
     "slug": "manajemen-talenta-berbasis-ai-etika",
-    "judul": "Manajemen Talenta Berbasis AI: Efisiensi dan Etika, Strategi Talent Remix, Mitigasi Bias Algoritma, dan UU PDP",
+    "judul": "Manajemen Talenta Berbasis AI Efisiensi dan Etika, Strategi Talent Remix, Mitigasi Bias Algoritma, dan UU PDP",
     "kategori": "Talent Management & AI Ethics",
     "tanggal": "2026-09-19",
     "deskripsi_singkat": "Kajian arsitektur AI dalam manajemen talenta dan HR enterprise: transisi ke Dynamic Skills Intelligence, strategi Talent Remix Gartner 2026 melampaui PHK massal, audit bias disparitas dampak, dan perlindungan hak pelamar UU PDP No. 27/2022.",
