@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memuat Artikel... | Ruang Baca Khohar</title>
+    <title>Memuat Artikel... | Ruang Baca Khohar Rohman</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,10 +23,10 @@
 
         .meta-header { text-align: center; margin-bottom: 50px; }
         .category-badge { display: inline-block; padding: 6px 16px; background: rgba(56, 189, 248, 0.1); color: var(--accent-color); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 100px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .article-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 25px; background: linear-gradient(to bottom, #fff 40%, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .info-bar { display: flex; justify-content: center; align-items: center; gap: 20px; color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        .article-title { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 25px; background: linear-gradient(to bottom, #fff 40%, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .info-bar { display: flex; justify-content: center; align-items: center; gap: 20px; color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 15px 0; flex-wrap: wrap; }
 
-        .article-body { font-size: 1.2rem; line-height: 1.9; color: #cbd5e1; font-family: 'Inter', sans-serif; }
+        .article-body { font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; font-family: 'Inter', sans-serif; }
         .article-body img { max-width: 100%; height: auto; border-radius: 12px; display: block; margin: 40px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .article-body h2, .article-body h3 { color: #fff; margin-top: 50px; margin-bottom: 20px; font-weight: 700; }
         .article-body p { margin-bottom: 25px; text-align: justify; }
@@ -45,19 +45,20 @@
 
     <nav class="glass-nav">
         <div class="nav-container">
-            <div class="brand-logo">
+            <a href="index.html" class="brand-logo" style="text-decoration: none;">
                 <i class="fas fa-layer-group"></i> Khohar<span>Artikel</span>
-            </div>
+            </a>
             <div class="nav-actions">
-                <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+                <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali ke Daftar</a>
+                <a href="https://khoharrohman.my.id/" class="btn-back"><i class="fas fa-home"></i> Portofolio</a>
             </div>
         </div>
     </nav>
 
     <div class="share-box">
-        <div class="btn-round" title="Share Twitter"><i class="fab fa-twitter"></i></div>
-        <div class="btn-round" title="Share LinkedIn"><i class="fab fa-linkedin-in"></i></div>
-        <div class="btn-round" title="Copy Link"><i class="fas fa-link"></i></div>
+        <div class="btn-round" title="Share Twitter" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))"><i class="fab fa-twitter"></i></div>
+        <div class="btn-round" title="Share LinkedIn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href))"><i class="fab fa-linkedin-in"></i></div>
+        <div class="btn-round" title="Copy Link" onclick="navigator.clipboard.writeText(window.location.href); alert('Tautan berhasil disalin!')"><i class="fas fa-link"></i></div>
     </div>
 
     <main class="article-wrapper">
@@ -73,7 +74,7 @@
                 <circle cx="72" cy="45" r="4" fill="#ef4444" opacity="0.6"/>
                 <path d="M 40 65 L 60 65 L 55 80 L 45 80 Z" fill="var(--accent-color)"/>
             </svg>
-            <div class="robot-text">Please wait patiently, processing data<span class="dots"></span></div>
+            <div class="robot-text">Memuat artikel ilmiah...<span class="dots"></span></div>
         </div>
 
         <article id="main-content" style="display: none;">
@@ -84,34 +85,31 @@
                 <div class="info-bar">
                     <span><i class="far fa-calendar-alt"></i> <span id="target-tanggal"></span></span>
                     <span><i class="far fa-clock"></i> <span id="reading-time">5</span> Menit Baca</span>
-                    <span><i class="far fa-user"></i> By Khohar</span>
+                    <span><i class="far fa-user"></i> By Khohar Muhamad Fatahurrohman</span>
                 </div>
             </header>
 
             <div id="target-isi" class="article-body"></div>
 
             <div style="margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border-color); text-align: center;">
-                <p style="color: var(--text-muted);">Selesai Membaca? Bagikan Insight ini!</p>
-                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
-                    <a href="index.html" class="btn-back" style="padding: 12px 30px;">Kembali ke Daftar Artikel</a>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Selesai Membaca? Jelajahi riset lainnya atau kunjungi portofolio utama.</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <a id="standalone-link" href="#" class="btn-back" style="padding: 12px 24px; background: var(--accent-color); color: #0b1120; font-weight: 700;">Buka Versi Lengkap Interaktif</a>
+                    <a href="index.html" class="btn-back" style="padding: 12px 24px;">Kembali ke Daftar Riset</a>
+                    <a href="https://khoharrohman.my.id/" class="btn-back" style="padding: 12px 24px;">Portofolio Utama</a>
                 </div>
             </div>
         </article>
     </main>
 
     <footer class="glass-footer">
-        <p>© 2026 Khohar Rohman. <i class="fas fa-bolt" style="color: var(--accent-color);"></i> Powered by AIFORA Engine.</p>
+        <p>© 2026 Khohar Muhamad Fatahurrohman (Khohar Rohman). Powered by AIFORA Research Engine.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        const SUPABASE_URL = 'https://whbmyhxjinbyakwyuxnrd.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoYm15aHhpbmJ5YWt3eXV4bnJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA0NDQxMzksImV4cCI6MjEwNjAyMDEzOX0.XsSwtCZCdIviu1opTvGynnvECrYKrGIRugy2CiN_gec';
-        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
         function calculateReadingTime(text) {
             const wordsPerMinute = 200;
-            const words = text.split(/\s+/).length;
+            const words = text ? text.split(/\s+/).length : 200;
             return Math.ceil(words / wordsPerMinute);
         }
 
@@ -123,14 +121,22 @@
         };
 
         function renderArticleDetail(article) {
-            document.title = `${article.judul} | Ruang Baca`;
+            document.title = `${article.judul} | Ruang Baca Khohar Rohman`;
             document.getElementById('target-judul').innerText = article.judul;
-            document.getElementById('target-kategori').innerText = article.kategori || 'TEKNOLOGI';
-            document.getElementById('target-isi').innerHTML = article.isi_artikel || `<p>${article.deskripsi_singkat || article.deskripsi || ''}</p>`;
+            document.getElementById('target-kategori').innerText = article.kategori || 'RISET AI';
+            document.getElementById('target-isi').innerHTML = article.isi_artikel || `<p>${article.deskripsi_singkat || ''}</p>`;
             
-            let d = new Date(article.tanggal || article.created_at);
+            let d = new Date(article.tanggal || '2026-10-01');
             document.getElementById('target-tanggal').innerText = d.toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric'});
             document.getElementById('reading-time').innerText = calculateReadingTime(document.getElementById('target-isi').innerText);
+
+            const standaloneBtn = document.getElementById('standalone-link');
+            if (article.link && article.link.endsWith('.html')) {
+                standaloneBtn.href = article.link;
+                standaloneBtn.style.display = 'inline-block';
+            } else {
+                standaloneBtn.style.display = 'none';
+            }
 
             document.getElementById('skeleton-loader').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
@@ -145,44 +151,32 @@
                 return;
             }
 
-            let loaded = false;
-
-            // 1. Coba ambil dari database Supabase
             try {
-                const { data, error } = await _supabase
-                    .from('tabel_artikel')
-                    .select('*')
-                    .eq('id', id)
-                    .single();
-
-                if (!error && data) {
-                    renderArticleDetail(data);
-                    loaded = true;
-                }
-            } catch (err) {
-                console.warn("Supabase fetch error, fallback to local:", err);
-            }
-
-            // 2. Jika Supabase gagal/offline, ambil dari artikel.json lokal
-            if (!loaded) {
-                try {
-                    const res = await fetch('artikel.json');
-                    if (res.ok) {
-                        const localArticles = await res.json();
-                        const found = localArticles.find(item => String(item.id) === String(id));
-                        if (found) {
-                            renderArticleDetail(found);
-                            loaded = true;
+                const res = await fetch('artikel.json');
+                if (res.ok) {
+                    const localArticles = await res.json();
+                    const found = localArticles.find(item => String(item.id) === String(id) || item.slug === String(id));
+                    if (found) {
+                        // Check if immediate redirect is requested or render detail
+                        if (urlParams.get('redirect') === 'true' && found.link) {
+                            window.location.replace(found.link);
+                            return;
                         }
+                        renderArticleDetail(found);
+                        return;
                     }
-                } catch (e) {
-                    console.error("Local fetch error:", e);
                 }
+            } catch (e) {
+                console.error("Local fetch error:", e);
             }
 
-            if (!loaded) {
-                document.getElementById('skeleton-loader').innerHTML = `<p style="color: #ef4444; padding: 30px; text-align: center;">❌ Artikel tidak ditemukan.</p>`;
-            }
+            document.getElementById('skeleton-loader').innerHTML = `
+                <div style="text-align: center; color: #ef4444; padding: 40px;">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                    <p style="font-weight: 700; font-size: 1.2rem;">Artikel tidak ditemukan.</p>
+                    <a href="index.html" class="btn-back" style="margin-top: 20px; display: inline-block;">Kembali ke Daftar Riset</a>
+                </div>
+            `;
         }
 
         fetchArticle();

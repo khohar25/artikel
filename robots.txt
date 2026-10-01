@@ -1,0 +1,27 @@
+# robots.txt for artikel.khoharrohman.my.id
+User-agent: *
+Allow: /
+
+# AI Crawlers & LLM Indexing Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://artikel.khoharrohman.my.id/sitemap.xml

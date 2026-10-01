@@ -1,0 +1,32 @@
+# Khohar Muhamad Fatahurrohman — Portal Riset & Publikasi Ilmiah AI
+
+> Domain: https://artikel.khoharrohman.my.id/
+> Penulis: Khohar Muhamad Fatahurrohman (Khohar Rohman)
+> Afiliasi: Politeknik Negeri Malang (POLINEMA) — D4 Teknik Informatika
+> Portofolio Utama: https://khoharrohman.my.id/
+
+## Profil Penulis & Peneliti
+Khohar Muhamad Fatahurrohman (dikenal sebagai Khohar Rohman / Khohar M.F.) adalah Software Engineer, Applied AI Researcher, dan peraih 8x Medali Emas Olimpiade Sains Nasional (OSN) dari Indonesia. Ia aktif meneliti implementasi kecerdasan buatan enterprise, arsitektur Small Language Models (SLMs), Model Context Protocol (MCP), Multi-Agent Systems, optimasi rantai pasok otonom, dan mitigasi bias algoritmik kepatuhan UU PDP No. 27/2022.
+
+## Publikasi Ilmiah & Kajian Terbitan (2026)
+
+1. [Transformasi Lanskap Kecerdasan Artifisial: Analisis Paradoks Produktivitas, Adopsi Lintas Sektor, dan Tata Kelola Berkelanjutan](https://artikel.khoharrohman.my.id/transformasi-lanskap-kecerdasan-artifisial.html)
+   - Mengupas Paradoks Solow dalam adopsi AI enterprise, transformasi sektoral, regulasi SE Menkominfo No. 9/2023, dan rekayasa instruksi RTF.
+
+2. [Adopsi Small Language Models (SLMs) di Sektor Perbankan: Arsitektur On-Premise, Kedaulatan Data UU PDP, dan Efisiensi Finansial](https://artikel.khoharrohman.my.id/adopsi-small-language-models-perbankan.html)
+   - Efisiensi Opex komputasi hingga 90%, kedaulatan data nasabah UU PDP No. 27/2022, The Models Pyramid, dan kepatuhan Panduan Tata Kelola AI OJK 2025/2026.
+
+3. [Model Context Protocol (MCP) dan Arsitektur Multi-Agent AI: Transformasi Standar Integrasi Konteks dan Tata Kelola Korporat](https://artikel.khoharrohman.my.id/model-context-protocol-multi-agent-enterprise.html)
+   - Solusi eliminasi krisis N x M, proteksi injeksi Text-to-SQL, arsitektur Control Plane berprinsip RBAC, dan audit jejak keputusan multi-agen.
+
+4. [AI Agent dalam Manajemen Rantai Pasok dan Logistik: Arsitektur Self-Healing, Mitigasi Bullwhip Effect, dan Tata Kelola Proporsional](https://artikel.khoharrohman.my.id/ai-agent-manajemen-rantai-pasok.html)
+   - Sistem rantai pasok swadaya (self-healing), konsensus terdistribusi multi-agen meredam agent bullwhip distortion, proyeksi pasar Gartner 2026-2030, dan piramida tata kelola proporsional.
+
+5. [AI Agent dalam Cybersecurity dan SOC Enterprise: Mitigasi Alert Fatigue, Prinsip Least Agency Privilege, dan Kepatuhan Regulasi](https://artikel.khoharrohman.my.id/ai-agent-cybersecurity-soc-enterprise.html)
+   - Eliminasi 70-85% false positive alert fatigue, korelasi multi-tahap SIEM/EDR, doktrin Least Agency Privilege, dan batas pelaporan 3x24 jam UU PDP No. 27/2022.
+
+6. [AI Software Engineering Agents dalam Transformasi SDLC: Dari Copilot ke Autonomous Engineer, SWE-bench, dan Verification-First](https://artikel.khoharrohman.my.id/ai-software-engineering-agents-sdlc.html)
+   - Evolusi asinkron multi-berkas SWE agents, benchmark SWE-bench verified, mitigasi utang tata kelola (governance debt), dan framework verification-first.
+
+7. [Manajemen Talenta Berbasis AI: Efisiensi dan Etika, Strategi Talent Remix, Mitigasi Bias Algoritma, dan UU PDP](https://artikel.khoharrohman.my.id/manajemen-talenta-berbasis-ai-etika.html)
+   - Transisi ke Dynamic Skills Intelligence, amplifikasi talenta strategi Talent Remix Gartner 2026 melampaui PHK massal, audit bias disparitas dampak 80%, dan perlindungan hak pelamar UU PDP No. 27/2022.

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hrHeroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="50%" stop-color="#111c38"/>
+      <stop offset="100%" stop-color="#080e1e"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="hrGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#hrHeroBg)"/>
+
+  <!-- Background Network Web -->
+  <g stroke="rgba(45, 212, 191, 0.12)" stroke-width="1.5">
+    <line x1="200" y1="180" x2="380" y2="280"/>
+    <line x1="380" y1="280" x2="600" y2="220"/>
+    <line x1="600" y1="220" x2="820" y2="280"/>
+    <line x1="820" y1="280" x2="1000" y2="180"/>
+    <line x1="380" y1="280" x2="500" y2="420"/>
+    <line x1="600" y1="220" x2="600" y2="440"/>
+    <line x1="820" y1="280" x2="700" y2="420"/>
+    <line x1="500" y1="420" x2="700" y2="420"/>
+  </g>
+
+  <!-- Central Core: Ethical AI Talent Engine -->
+  <g transform="translate(600, 310)">
+    <circle r="90" fill="#132347" stroke="#2dd4bf" stroke-width="3" filter="url(#hrGlow)"/>
+    <circle r="65" fill="#0d1b36" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <!-- Head / Brain icon in center -->
+    <path d="M -20 -15 C -20 -35 20 -35 20 -15 C 20 -5 12 5 12 18 L -12 18 C -12 5 -20 -5 -20 -15 Z" fill="none" stroke="#2dd4bf" stroke-width="2.5"/>
+    <line x1="-8" y1="25" x2="8" y2="25" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="48" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle" letter-spacing="1">ETHICAL AI ENGINE</text>
+  </g>
+
+  <!-- Node 1: Candidate Sourcing -->
+  <g transform="translate(200, 180)">
+    <circle r="42" fill="#132347" stroke="#38bdf8" stroke-width="2"/>
+    <text x="0" y="-4" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Sourcing</text>
+    <text x="0" y="14" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Dynamic Matching</text>
+  </g>
+
+  <!-- Node 2: Skills Intelligence Graph -->
+  <g transform="translate(380, 280)">
+    <circle r="48" fill="#132347" stroke="#2dd4bf" stroke-width="2"/>
+    <text x="0" y="-4" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Skills Graph</text>
+    <text x="0" y="14" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Talent Taxonomy</text>
+  </g>
+
+  <!-- Node 3: Predictive Retention -->
+  <g transform="translate(820, 280)">
+    <circle r="48" fill="#132347" stroke="#a78bfa" stroke-width="2"/>
+    <text x="0" y="-4" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Retention AI</text>
+    <text x="0" y="14" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">People Analytics</text>
+  </g>
+
+  <!-- Node 4: Bias Mitigation & UU PDP Shield -->
+  <g transform="translate(1000, 180)">
+    <circle r="42" fill="#132347" stroke="#fbbf24" stroke-width="2"/>
+    <text x="0" y="-4" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="middle">UU PDP</text>
+    <text x="0" y="14" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Anti-Bias Shield</text>
+  </g>
+
+  <!-- Lower Node: Human Leadership & Empathy -->
+  <g transform="translate(600, 480)">
+    <rect x="-120" y="-28" width="240" height="56" rx="28" fill="#0f1f3d" stroke="#2dd4bf" stroke-width="2"/>
+    <text x="0" y="2" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#2dd4bf" text-anchor="middle">HUMAN-IN-THE-LOOP</text>
+    <text x="0" y="18" font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Empati, Diskresi &amp; Budaya Kerja</text>
+  </g>
+
+  <!-- Header Banner -->
+  <text x="600" y="65" font-family="'Inter', sans-serif" font-size="30" font-weight="800" fill="#2dd4bf" text-anchor="middle" letter-spacing="1">AI-DRIVEN TALENT MANAGEMENT &amp; PEOPLE ANALYTICS</text>
+  <text x="600" y="98" font-family="'Inter', sans-serif" font-size="15" fill="#94a3b8" text-anchor="middle">Harmonisasi Efisiensi Prediktif, Mitigasi Bias Algoritma, dan Pelindungan Data Pribadi Pelamar</text>
+</svg>
