@@ -2,11 +2,11 @@
 
 > Domain: https://artikel.khoharrohman.my.id/
 > Penulis: Khohar Muhamad Fatahurrohman (Khohar Rohman)
-> Peran: Applied AI & Software Engineer
+> Peran: Director of PT Aigarn Akademi Artificial • Applied AI & Software Engineer
 > Portofolio Utama: https://khoharrohman.my.id/
 
 ## Profil Penulis & Peneliti
-Khohar Muhamad Fatahurrohman (dikenal sebagai Khohar Rohman / Khohar M.F.) adalah Software Engineer, Applied AI Researcher, dan peraih 8x Medali Emas Olimpiade Sains Nasional (OSN) dari Indonesia. Ia aktif meneliti implementasi kecerdasan buatan enterprise, arsitektur Small Language Models (SLMs), Model Context Protocol (MCP), Multi-Agent Systems, optimasi rantai pasok otonom, dan mitigasi bias algoritmik kepatuhan UU PDP No. 27/2022.
+Khohar Muhamad Fatahurrohman (dikenal sebagai Khohar Rohman / Khohar M.F.) adalah Director di PT Aigarn Akademi Artificial, praktisi Applied AI & Software Engineer, serta peraih 8 Medali Emas Olimpiade Sains Nasional (OSN) dari Indonesia. Ia aktif meneliti implementasi kecerdasan buatan enterprise, arsitektur Small Language Models (SLMs), Model Context Protocol (MCP), Multi-Agent Systems, optimasi rantai pasok otonom, dan tata kelola etika teknologi berstandar UU PDP No. 27/2022.
 
 ## Publikasi Ilmiah & Kajian Terbitan (2026)
 
