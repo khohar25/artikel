@@ -92,7 +92,7 @@ function renderArticleCards(articles) {
             if (firstImg) imageUrl = firstImg.src;
         }
 
-        let imgHTML = imageUrl ? `<a href="${article.link || ('baca.html?id=' + article.id)}"><img src="${imageUrl}" alt="Cover ${article.judul}" class="card-img" style="object-fit: cover; object-position: center; width: 100%; height: 210px; display: block;" loading="lazy"></a>` : '';
+        let imgHTML = imageUrl ? `<a href="${article.link || ('baca.html?id=' + article.id)}"><img src="${imageUrl}" alt="Cover ${article.judul}" class="card-img" style="object-fit: cover; object-position: center; width: 100%; height: 210px; display: block;" onerror="this.onerror=null; this.src='assets/' + this.src.split('/').pop();" loading="lazy"></a>` : '';
 
         const targetLink = article.link || `baca.html?id=${article.id}`;
 
